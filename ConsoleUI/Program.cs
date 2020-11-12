@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleUI.Models;
+using ConsoleUI.WithGenerics;
 using ConsoleUI.WithoutGenerics;
 
 namespace ConsoleUI
@@ -27,14 +28,20 @@ namespace ConsoleUI
 
             PopulateLists(people, logs);
 
-            OriginalTextFileProcessor.SavePeople(people, peopleFile);
+            /* New way of doing things - generics */
 
-            var newPeople = OriginalTextFileProcessor.LoadPeople(peopleFile);
+            GenericTextFileProcessor.SaveToTextFile(logs, logFile);
 
-            foreach (var p in newPeople)
-            {
-                Console.WriteLine($"{ p.FirstName } { p.LastName } (IsAlive = { p.IsAlive })");
-            }
+            /* Old way of doing things - non-generics */
+
+            //OriginalTextFileProcessor.SavePeople(people, peopleFile);
+
+            //var newPeople = OriginalTextFileProcessor.LoadPeople(peopleFile);
+
+            //foreach (var p in newPeople)
+            //{
+            //    Console.WriteLine($"{ p.FirstName } { p.LastName } (IsAlive = { p.IsAlive })");
+            //}
         }
 
         private static void PopulateLists(List<Person> people, List<LogEntry> logs)

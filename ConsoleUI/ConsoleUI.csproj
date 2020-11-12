@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\LogEntry.cs" />
+    <Compile Include="WithGenerics\GenericTextFileProcessor.cs" />
     <Compile Include="WithoutGenerics\OriginalTextFileProcessor.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />
